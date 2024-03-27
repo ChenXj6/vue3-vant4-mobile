@@ -1,3 +1,4 @@
+/* eslint-disable import/no-mutable-exports */
 import { createI18n } from 'vue-i18n'
 import type { App } from 'vue'
 import { setHtmlPageLang, setLoadLocalePool } from './helper.js'
@@ -31,7 +32,7 @@ async function createI18nOptions() {
 
 export const getI18n = (async () => createI18n(await createI18nOptions()))()
 
-export const i18n: Awaited<typeof getI18n> = null as any
+export let i18n: Awaited<typeof getI18n> = null as any
 
 getI18n.then(res => (i18n = res))
 
